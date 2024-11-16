@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 50px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form styling */
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-upload {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+}
+
+.placeholder-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #f0f0f0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #cac720;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f1f0e5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #edea2c;
+    color: #333;
+}

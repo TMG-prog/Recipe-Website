@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="C:\Users\tracy\OneDrive\Desktop\Recipewebapp\reg.css">
+</head>
+<body>
+    
+   <div class="Register">
+
+    <form action="/submit-registration" method="post">
+        <h2>Create your Account!</h2>
+        <h4>To Discover Africa's Taste</h4>
+        <div class="input-group">
+        
+        <label for="Username">Username:</label>
+        <input type="text" id="Username" name="Username" placeholder="Set Username" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+
+        <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Set password"
+                   pattern="^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" 
+                   title="Password must contain at least one number, 
+                           one alphabet, one symbol, and be at 
+                           least 8 characters long" required >
+
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+        </div>
+        <div class = "check">
+            <input type="checkbox" id="terms" name="terms">
+            <label for="terms">I agree to the <a href="#termsAndConditions" onclick="showTerms()">Terms and Conditions</a></label>
+        </div>
+
+        <button type="submit">Sign Up</button>
+        <span class="sign-up">Already have an account? <a href="#">Sign in</a></span>
+    </form>
+</div>
+</body>
+</html>

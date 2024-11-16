@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Display</title>
+    <style>
+        /* Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #d9534f;
+        }
+        .recipe {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        img {
+            max-width: 350px;
+            height: auto;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #5bc0de;
+        }
+        strong {
+            color: #333;
+        }
+        ol {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Recipe List</h1>
+    <div id="recipe-container"></div>
+    <script>
+        // Define the API endpoint
+        const apiEndpoint = 'http://localhost:3001/api/recipes';
+
+        async function displayRecipes() {
+            try {
+                const response = await fetch(apiEndpoint);
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+                }
+
+                const recipes = await response.json();
+                const container = document.getElementById('recipe-container');
+                
+                container.innerHTML = '';
+
+                if (!Array.isArray(recipes) || recipes.length === 0) {
+                    container.innerHTML = '<p>No recipes found.</p>';
+                    return;
+                }
+
+                for (const recipe of recipes) {
+                    const recipeElement = document.createElement('div');
+                    recipeElement.classList.add('recipe');
+
+                    recipeElement.innerHTML = `
+                        <h2>${recipe.recipe_name}</h2>
+                        <img src="http://localhost:3001${recipe.image_path}" alt="${recipe.recipe_name}">
+                        <p><strong>Owner:</strong> ${recipe.recipe_owner}</p>
+                        <p><strong>Description:</strong> ${recipe.description}</p>
+                        <p><strong>Ingredients:</strong></p>
+                        <ol>
+                            ${recipe.ingredients.split(',').map(ingredient => `<li>${ingredient.trim()}</li>`).join('')}
+                        </ol>
+                        <p><strong>Instructions:</strong></p>
+                        <ol>
+                            ${recipe.instructions.split('\n').map(step => `<li>${step.trim()}</li>`).join('')}
+                        </ol>
+                    `;
+
+                    container.appendChild(recipeElement);
+                }
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+                const container = document.getElementById('recipe-container');
+                container.innerHTML = '<p>Failed to load recipes. Please try again later.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', displayRecipes);
+    </script>
+    
+</body>
+</html>

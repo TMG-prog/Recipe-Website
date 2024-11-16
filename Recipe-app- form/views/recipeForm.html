@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Recipe</title>
+    <link rel="stylesheet" href="/formstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Your Recipe</h1>
+        <form action="/new-recipe" method="POST" enctype="multipart/form-data" class="recipe-form">
+            <div class="image-upload">
+                <label for="recipe_image">
+                    <img id="image_preview" src="/path/to/placeholder-image.jpg" alt="Upload Image" class="placeholder-img">
+                </label>
+                <input type="file" id="recipe_image" name="recipe_image" style="display: none;" onchange="previewImage(event)">
+            </div>
+
+            <div class="form-group">
+                <label for="recipe_name">Recipe Name:</label>
+                <input type="text" id="recipe_name" name="recipe_name" placeholder="Add a recipe name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="recipe_owner">Recipe Owner:</label>
+                <input type="text" id="recipe_owner" name="recipe_owner" placeholder="Add your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder="Add a detailed description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Ingredients (comma separated):</label>
+                <input type="text" id="ingredients" name="ingredients" placeholder="E.g., flour, sugar, eggs" required>
+            </div>
+            <div class="form-group">
+                <label for="instructions">Instructions:</label>
+                <textarea id="instructions" name="instructions" placeholder="Add the needed steps"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags" name="tags" placeholder="Search for a tag">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Recipe</button>
+
+        </form>
+
+    </div>
+    <script>function previewImage(event) {
+        const image = document.getElementById('image_preview');
+        const file = event.target.files[0];
+    
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                image.src = e.target.result; // Set the preview image's source
+                image.style.display = "block"; // Make sure the image is visible
+            };
+            reader.readAsDataURL(file); // Start reading the file as a Data URL
+        }
+    }</script>
+</body>
+</html>

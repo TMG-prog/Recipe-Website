@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background:rgb(249, 246, 246);
+    background:linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)), url(back.jpg);
+
+   }
+h4{
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 5px;
+    color:#01030c;
+    font-size: 15px;
+}
+.Register{
+    
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+    height: auto;
+    
+}
+h2 {
+    text-align: center;
+    color: #561217;
+}
+
+form {
+    
+        background-color:rgba(238, 239, 226, 0.922);
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        padding: 30px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+    .input-group {
+        margin-bottom: 5px; 
+    
+    }
+    .input-group label {
+        display: block;
+        margin-bottom: 2px;
+        color: #000000;
+        font-weight: bold;
+        height: 20px;
+
+    }
+    
+   
+    .input-group input {
+        margin-bottom: 0px; 
+        margin-top: 10px;
+        
+    }
+    .form::before {
+        position: absolute;
+        content: "";
+        width: 300px;
+        height: 300px;
+        background-color: rgb(134, 132, 138);
+        transform: rotate(45deg);
+        left: -180px;
+        bottom: 80px;
+        opacity: 30%;
+        border-radius: 30px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.082);
+    }
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    background-color: #dabe33;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5rem;
+    padding: 1rem;
+}
+
+button:hover {
+    background-color: #59645e;
+}
+.Register span{
+    margin-top:5px;
+    text-align: center;
+}
+
+.check {
+    text-align:start;
+}
